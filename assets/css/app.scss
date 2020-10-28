@@ -22,7 +22,7 @@ figure {
     z-index: 10;
     @include text-center;
     color: $red;
-    background-color: $yellow;
+    background-color: rgba($yellow, 0.5);
   }
 
   img {
