@@ -1,3 +1,15 @@
-body {
-  background-color: green;
+.grid {
+  display: grid;
+  // grid-template-columns: 250px 250px;
+  grid-template-columns: repeat(12, 1fr);
+  // grid-template-columns: 1fr 1fr;
+}
+
+.main-text {
+  grid-column: 1 / 5;
+}
+
+.main-image {
+  grid-column-start: 5;
+  grid-column-end: 12;
 }
