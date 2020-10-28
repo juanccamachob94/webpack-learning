@@ -31,7 +31,17 @@ img {
 
   @media(min-width: 960px) {
     grid-template-areas:
-      '. title title image image image image image .'
+      'title title title image image image image image image'
     ;
+  }
+}
+
+.container {
+  // grid-column: span 10;
+  // grid-column: 2 / 12;
+  grid-column: span 12;
+
+  @media(min-width: 960px) {
+    grid-column: 2 / 12;
   }
 }
