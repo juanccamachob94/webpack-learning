@@ -1,3 +1,9 @@
+@import './modules/_variables.scss';
+
+body {
+  background-color: $red;
+}
+
 img {
   max-width: 100%;
 }
@@ -40,6 +46,7 @@ img {
   // grid-column: span 10;
   // grid-column: 2 / 12;
   grid-column: span 12;
+  padding: $big-padding;
 
   @media(min-width: 960px) {
     grid-column: 2 / 12;
