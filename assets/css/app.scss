@@ -17,19 +17,7 @@ figure {
   margin: 0px;
 
   figcaption {
-    padding: $large-padding;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 2em;
-    position: absolute;
-    letter-spacing: 5px;
-    width: auto;
-    bottom: 5px;
-    left: 0px;
-    z-index: 10;
-    @include text-center;
-    color: $red;
-    background-color: rgba($yellow, 0.5);
+    @include caption;
   }
 
   img {
@@ -122,6 +110,7 @@ figure {
 
 .cover {
   @include absolute-cover;
+  position: relative;
   background: $red;
   min-height: 500px;
   background-size: cover;
@@ -130,6 +119,23 @@ figure {
   &.parallax {
     background-attachment: fixed;
     background-image: url(../../public/images/8.jpg);
+  }
+
+  p {
+    color: white;
+    @include caption;
+    @include text-right;
+    background-color: rgba($blue, 0.8);
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+
+    span {
+      display: block;
+      font-size: 0.5em;
+      font-weight: 200;
+      margin-top: 6px;
+    }
   }
 }
 
