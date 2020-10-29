@@ -134,6 +134,24 @@ figure {
   min-height: 100vh;
 }
 
+
+.slider {
+  header {
+    background-color: $blue;
+    color: white;
+    padding: $large-padding;
+  }
+
+  h2 {
+    margin: 0px;
+  }
+
+  @media(min-width: 960px) {
+    align-items: center;
+  }
+}
+
+
 .mission {
   align-items: center;
   justify-content: center;
