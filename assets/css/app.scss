@@ -30,6 +30,31 @@ figure {
   }
 }
 
+.btn {
+  padding: $large-padding;
+  position: relative;
+  color: $blue !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: $green;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
+    height: 40%;
+    z-index: -1;
+    transition: all 0.15s ease-out;
+  }
+
+  &:hover::before {
+    height: 100%;
+  }
+}
+
 .grid {
   // @include full;
   display: grid;
