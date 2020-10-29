@@ -168,3 +168,31 @@ figure {
     }
   }
 }
+
+.social {
+  margin-top: $big-margin-top;
+  margin-bottom: $big-margin-bottom;
+  @include text-center;
+
+  p.title {
+    font-weight: 200;
+    font-size: 2.5em;
+  }
+
+  a {
+    display: block;
+    max-width: 150px;
+    margin: 1em auto;
+  }
+
+  @media(min-width: 960px) {
+    a {
+      display: inline-block;
+      margin-top: 0px;
+      margin-right: 90px;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
