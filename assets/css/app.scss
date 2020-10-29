@@ -76,18 +76,8 @@ figure {
   }
 
   .text {
-    font-weight: 200;
+    @include main-text;
     grid-area: title;
-    // grid-column: 1 / 5;
-    front-size: 1.2em;
-    line-height: 1.5em;
-
-    h1 {
-      font-size:  $big;
-      font-weight: inherit;
-      letter-spacing: 0.3em;
-      line-height: inherit;
-    }
   }
   
   .image {
@@ -140,6 +130,41 @@ figure {
 }
 
 
-#footer-section {
+.full-height {
   min-height: 100vh;
+}
+
+.mission {
+  align-items: center;
+  justify-content: center;
+
+  .container{
+    @include main-text;
+    font-size: 1.1em;
+
+    figure {
+      float: right;
+      margin-left: 20px;
+      width: 500px;
+    }
+
+    p {
+      line-height: 2em;
+      &:nth-of-type(1) {
+        margin-bottom: 3em;
+        position: relative;
+        // border-bottom: solid 2px;
+
+        &::after {
+          content: '';
+          background-color: $blue;
+          position: absolute;
+          bottom: -1.5em;
+          height: 8px;
+          width: 50%;
+          z-index: -1;
+        }
+      }
+    }
+  }
 }
