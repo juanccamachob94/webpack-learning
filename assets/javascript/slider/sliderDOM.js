@@ -1,4 +1,5 @@
 import Slider from './slider';
+import elements from './elements';
 
 let sliderText = document.querySelector('#slider-text');
 let sliderTitle = document.querySelector('#slider-title');
@@ -7,28 +8,8 @@ let sliderImage = document.querySelector('#slider-image');
 let textContent = document.querySelector('#slider-text-content');
 
 let slider = new Slider({
-  elements: [
-    {
-      title: 'Lorem Ipsum A',
-      subtitle: 'Ipsum',
-      image: '../public/images/5.jpg',
-      text: 'Esta es una prueba de programación. COntraty ti poidfasd delkefias  daskldoisad us sunoke asdrasd text. Esto no es clasigacal fdesde 45 FBA.'
-    },
-    {
-      title: 'Lorem Ipsum B',
-      subtitle: 'Ipsum',
-      image: '../public/images/6.jpg',
-      text: 'Esta es una prueba de programación. COntraty ti poidfasd delkefias  daskldoisad us sunoke asdrasd text. Esto no es clasigacal fdesde 45 FBA.'
-    },
-    {
-      title: 'Lorem Ipsum C',
-      subtitle: 'Ipsum',
-      image: '../public/images/7.jpg',
-      text: 'Esta es una prueba de programación. COntraty ti poidfasd delkefias  daskldoisad us sunoke asdrasd text. Esto no es clasigacal fdesde 45 FBA.'
-    }
-  ],
+  elements,
   animationFunc: function(element) {
-    console.log(element);
     textContent.classList.add('hide');
     sliderImage.classList.add('hide');
 
