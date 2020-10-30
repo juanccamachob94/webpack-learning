@@ -139,7 +139,12 @@ figure {
   header {
     background-color: $blue;
     color: white;
-    padding: $large-padding;
+    padding: $big-padding;
+    transform: translateY(35px);
+    width: 80%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    min-height: 350px;
   }
 
   h2 {
@@ -148,6 +153,10 @@ figure {
 
   @media(min-width: 960px) {
     align-items: center;
+
+    header {
+      transform: translateX(100px);
+    }
   }
 }
 
