@@ -4,7 +4,7 @@ let sliderText = document.querySelector('#slider-text');
 let sliderTitle = document.querySelector('#slider-title');
 let sliderSubTitle = document.querySelector('#slider-subtitle');
 let sliderImage = document.querySelector('#slider-image');
-
+let textContent = document.querySelector('#slider-text-content');
 
 let slider = new Slider({
   elements: [
@@ -28,14 +28,20 @@ let slider = new Slider({
     }
   ],
   animationFunc: function(element) {
-    sliderText.innerHTML = element.text;
-    sliderTitle.innerHTML = element.title;
-    sliderSubTitle.innerHTML = element.subtitle;
-    sliderImage.src = element.image;
-  },
+    console.log(element);
+    textContent.classList.add('hide');
+    sliderImage.classList.add('hide');
 
-  speed: 2000
+    setTimeout(function() {
+      sliderText.innerHTML = element.text;
+      sliderTitle.innerHTML = element.title;
+      sliderSubTitle.innerHTML = element.subtitle;
+      sliderImage.src = element.image;
+      textContent.classList.remove('hide');
+      sliderImage.classList.remove('hide');
+    }, 600);
+  },
+  speed: 5000
 });
 
-console.log('play');
 slider.play();
