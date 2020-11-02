@@ -7,7 +7,7 @@ const CACHE_NAME = 'STORIES_CACHE_v1';
 self.addEventListener('install', function() {
   // guardar archivos iniciales
   caches.open(CACHE_NAME).then(function(cache) {
-    cache.addAll(['/index.html']);
+    cache.addAll(['/index.html', '/dist/javascript/bundle.js']);
   });
 });
 
@@ -19,6 +19,17 @@ self.addEventListener('activate', function(ev) {
           if(CACHE_NAME !== cacheName) caches.delete(cacheName);
         })
       );
+    })
+  );
+});
+
+self.addEventListener('fetch', function(ev) {
+  console.log(ev.request);
+  ev.respondWith(
+    //caches.match(ev.request)
+    caches.match(ev.request).then(function(response) {
+      console.log(response);
+      return response || fetch(ev.request);
     })
   );
 });
