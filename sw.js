@@ -1,3 +1,5 @@
+const { EnvironmentPlugin, cache } = require("webpack");
+
 const CACHE_NAME = 'STORIES_CACHE_v1';
 // service worker
 // install descargar y guardaree archivos
@@ -28,8 +30,26 @@ self.addEventListener('fetch', function(ev) {
   ev.respondWith(
     //caches.match(ev.request)
     caches.match(ev.request).then(function(response) {
-      console.log(response);
-      return response || fetch(ev.request);
+      // console.log(response);
+      // return response || fetch(ev.request);
+      return searchInCacheOrMakeRequest(ev.request);
+    }).catch(function(err) {
+      if(ev.request.mode == 'navigate') return caches.match(env.request);
     })
   );
 });
+
+function searchInCacheOrMakeRequest(request) {
+  const cachePrommise = caches.open(CACHE_NAME);
+  const matchPromise = cachePrommise.then(function(cache) {
+    return cache.match(request);
+  });
+
+  return Promise.all([cachePromise, matchPromise]).then(function([cache, cacheResponse]) {
+    cache.put(request, fetchResponse.clone());
+    const fetchPromise = fetch(request).then(function(fetchResponse) {
+      return fetchResponse;
+    });
+    return cacheResponse || fetchPromise;
+  });
+}
