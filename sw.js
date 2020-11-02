@@ -10,3 +10,15 @@ self.addEventListener('install', function() {
     cache.addAll(['/index.html']);
   });
 });
+
+self.addEventListener('activate', function(ev) {
+  ev.waitUntil(
+    caches.keys().then(function(cacheNames){
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if(CACHE_NAME !== cacheName) caches.delete(cacheName);
+        })
+      );
+    })
+  );
+});
