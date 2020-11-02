@@ -15,7 +15,7 @@ self.addEventListener('install', function() {
 
 self.addEventListener('activate', function(ev) {
   ev.waitUntil(
-    caches.keys().then(function(cacheNames){
+    caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.map(cacheName => {
           if(CACHE_NAME !== cacheName) caches.delete(cacheName);
@@ -26,7 +26,7 @@ self.addEventListener('activate', function(ev) {
 });
 
 self.addEventListener('fetch', function(ev) {
-  console.log(ev.request);
+  // console.log(ev.request);
   ev.respondWith(
     //caches.match(ev.request)
     caches.match(ev.request).then(function(response) {
@@ -46,8 +46,8 @@ function searchInCacheOrMakeRequest(request) {
   });
 
   return Promise.all([cachePromise, matchPromise]).then(function([cache, cacheResponse]) {
-    cache.put(request, fetchResponse.clone());
     const fetchPromise = fetch(request).then(function(fetchResponse) {
+      cache.put(request, fetchResponse.clone());
       return fetchResponse;
     });
     return cacheResponse || fetchPromise;
