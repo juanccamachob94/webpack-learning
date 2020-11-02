@@ -57,6 +57,43 @@ figure {
   grid-template-columns: repeat(12, 1fr);
   // grid-template-columns: 1fr 1fr;
 }
+.menu-screen {
+  @include center-vertical-horizontal;
+  @include transition;
+
+  background-color: white;
+  height: 100vh;
+  width: 100vh;
+  position: fixed;
+  z-index: 100;
+
+  a {
+    @include text-center;
+
+    display: block;
+    text-decoration: none;
+    position: relative;
+    margin-top: 1em;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    .main {
+      display: block;
+      font-size: 2em;
+      color: $light-blue;
+    }
+
+    span:not(.main) {
+      @include transition;
+      color: $red;
+      opacity: 0;
+      transition-duration: 0.2s;
+    }
+  }
+}
+
 
 .grid-main-area {
   display: grid;
